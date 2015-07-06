@@ -25,9 +25,6 @@ if !File.exist?(vagrant_root + '/vagrant.yml')
 end
 $vconfig = YAML::load_file(vagrant_root + '/vagrant.yml')
 
-# Determine if we are on Windows host or not.
-is_windows = Vagrant::Util::Platform.windows?
-
 # Check if Vagrant is running as root.
 running_as_root = (Process.uid == 0)
 
@@ -64,7 +61,7 @@ Vagrant.configure("2") do |config|
 
   synced_folders = $vconfig['synced_folders']
   # nfs: better performance on Mac
-  if synced_folders['type'] == "nfs"  && !is_windows
+  if synced_folders['type'] == "nfs"
     config.vm.synced_folder vagrant_root, vagrant_mount_point,
       type: "nfs",
       mount_options: ["nolock", "vers=3", "tcp"]
