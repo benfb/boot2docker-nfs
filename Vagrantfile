@@ -46,7 +46,9 @@ Vagrant.configure("2") do |config|
   config.vm.box = "blinkreaction/boot2docker"
   config.vm.box_version = "1.7.0"
   config.vm.box_check_update = true
-  config.vm.network "forwarded_port", guest: 8080, host: 8080, protocol: 'tcp'
+  $vconfig['ports'].each do |port|
+    config.vm.network "forwarded_port", guest: port, host: port, protocol: 'tcp'
+  end unless $vconfig['ports'].nil?
   ## Network ##
 
   # The default box private network IP is 192.168.10.10

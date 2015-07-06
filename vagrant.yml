@@ -27,6 +27,9 @@ hosts:
     #- ip: 192.168.10.12
     #- ip: 192.168.10.13
 
+ports:
+    - 8080
+
 # Automatically start containers if docker-compose.yml is present in the current directory (default: false).
 compose_autostart: false
 
