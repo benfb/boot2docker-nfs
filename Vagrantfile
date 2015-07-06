@@ -121,7 +121,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", run: "always" do |s|
     s.inline = <<-SCRIPT
       echo "export VAGRANT_ROOT=$1" >> /home/docker/.profile
-      echo "cd $1" >> /home/docker/.ashrc
+      echo "cd $1" >> /home/docker/.bashrc
     SCRIPT
     s.args = "#{vagrant_mount_point}"
   end
