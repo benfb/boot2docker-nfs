@@ -51,7 +51,6 @@ Vagrant.configure("2") do |config|
 
   # The default box private network IP is 192.168.10.10
   # Configure additional IP addresses in vagrant.yml
-  # Using Intel PRO/1000 MT Server [82545EM] network adapter - shows slightly better performance compared to "virtio".
   $vconfig['hosts'].each do |host|
     config.vm.network "private_network", ip: host['ip'], nic_type: "virtio"
   end unless $vconfig['hosts'].nil?
