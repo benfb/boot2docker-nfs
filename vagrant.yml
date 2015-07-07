@@ -29,6 +29,7 @@ hosts:
 
 ports:
     - 8080
+    - 5000
 
 # Automatically start containers if docker-compose.yml is present in the current directory (default: false).
 compose_autostart: false
